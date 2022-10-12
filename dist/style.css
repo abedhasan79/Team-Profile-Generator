@@ -4,3 +4,15 @@
 header h1{
     color: red;
 }
+
+.card{
+    width: 25%;
+    margin-left: 2vh;
+    margin-top: 5vh;
+    text-align: center;
+}
+@media screen and (max-width:500px) {
+    .card{
+        display: inline;
+    }
+}

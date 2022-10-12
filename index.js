@@ -54,9 +54,9 @@ function generateManagerHtml(manager) {
                 <h5 class="card-title">Manager</eh5>
             </div>
             <ul class="list-group list-group-flush">
-                <li class="list-group-item">${manager.id}</li>
-                <li class="list-group-item">${manager.email}</li>
-                <li class="list-group-item">${manager.officeNumber}</li>
+                <li class="list-group-item">ID: ${manager.id}</li>
+                <li class="list-group-item">Email: <a href="mailto:${manager.email}">${manager.email}</a></li>
+                <li class="list-group-item">Office Number: ${manager.officeNumber}</li>
             </ul>
         </div>
     `;
@@ -67,12 +67,12 @@ function generateEngineerHtml(engineer) {
         <div class="card">
             <div class="card-body">
                 <h5 class="card-title">${engineer.name}</h5>
-                <h5 class="card-title">Manager</h5>
+                <h5 class="card-title">Engineer</h5>
             </div>
             <ul class="list-group list-group-flush">
-                <li class="list-group-item">${engineer.id}</li>
-                <li class="list-group-item">${engineer.email}</li>
-                <li class="list-group-item">${engineer.github}</li>
+                <li class="list-group-item">ID: ${engineer.id}</li>
+                <li class="list-group-item">Email: <a href="mailto:${engineer.email}">${engineer.email}</a></li>
+                <li class="list-group-item">GitHub: <a href="https://github.com/${engineer.github}">${engineer.github}</a></li>
             </ul>
         </div>
     `;
@@ -83,47 +83,42 @@ function generateInternHtml(intern) {
         <div class="card">
             <div class="card-body">
                 <h5 class="card-title">${intern.name}</h5>
-                <h5 class="card-title">Manager</h5>
+                <h5 class="card-title">Intern</h5>
             </div>
             <ul class="list-group list-group-flush">
-                <li class="list-group-item">${intern.id}</li>
-                <li class="list-group-item">${intern.email}</li>
-                <li class="list-group-item">${intern.school}</li>
+                <li class="list-group-item">ID: ${intern.id}</li>
+                <li class="list-group-item">Email: <a href="mailto:${intern.email}">${intern.email}</a></li>
+                <li class="list-group-item">School: ${intern.school}</li>
             </ul>
         </div>
     `;
 }
 
 function generateHTML(data) {
-    let arr = [];
-    let employee;
-    let role;
-    let managerSection;
-    let engineerSection;
-    let internSection;
+    const arr = [];
+    
     for (let i = 0; i < data.length; i++) {
-        employee = data[i];
-        role = employee.getRole();
-    }
-
-    if (role === 'Manager') {
-        managerSection = generateManagerHtml(employee);
-        arr.push(managerSection);
-    }
-
-    if (role === 'Engineer') {
-        engineerSection = generateEngineerHtml(employee);
-        arr.push(engineerSection);
-    }
-
-    if (role === 'Intern') {
-        internSection = generateInternHtml(employee);
-        arr.push(internSection);
+        const employee = data[i];
+        const role = employee.getRole();
+        if (role === 'Manager') {
+            const managerSection = generateManagerHtml(employee);
+            arr.push(managerSection);
+        }
+    
+        if (role === 'Engineer') {
+           const engineerSection = generateEngineerHtml(employee);
+            arr.push(engineerSection);
+        }
+    
+        if (role === 'Intern') {
+            const internSection = generateInternHtml(employee);
+            arr.push(internSection);
+        }
     }
 
     return generateHtmlMarkdown(arr.join(''));
 }
-let team = [];
+const team = [];
 
 function createManager() {
     return inquirer
@@ -208,17 +203,21 @@ function createEmployee() {
 
         ])
         .then(response => {
-            let employee;
+            
             if (response.engineerOrIntern === 'Engineer') {
-                employee = new Engineer(response.employeeName, response.employeeId, response.employeeEmail, response.engineerGithub);
+                const engineer = new Engineer(response.employeeName, response.employeeId, response.employeeEmail, response.engineerGithub);
+                console.log(engineer);
+                team.push(engineer);
             }
             if (response.engineerOrIntern === 'Intern') {
-                employee = new Intern(response.employeeName, response.employeeId, response.employeeEmail, response.internSchool);
+                const intern = new Intern(response.employeeName, response.employeeId, response.employeeEmail, response.internSchool);
+                console.log(intern);
+                team.push(intern);
             }
-            team.push(employee);
+            
 
             if (response.addEmployee) {
-                return createEmployee(team);
+                return createEmployee();
             } else {
                 return team;
             }
