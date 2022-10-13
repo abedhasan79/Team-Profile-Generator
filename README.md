@@ -28,7 +28,7 @@ To run the app type node index.js from the root directory
 To see a sample HTML generated using the app [click HERE](https://github.com/abedhasan79/Team-Profile-Generator/blob/main/dist/generatedIndex.html) . The link takes you to the github repository where the file is stored.
 
 ### Walkthrough Video
-[click here]() to see a walkthrough video of the app.
+[click here](https://app.castify.com/view/01bc3242-a73a-46b4-aaa4-2b7e39602bfd) to see a walkthrough video of the app.
 
 ## License
 The Application is covered under MIT license
