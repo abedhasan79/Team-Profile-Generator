@@ -1,3 +1,4 @@
+//import files and libs
 const inquirer = require('inquirer');
 const fs = require('fs');
 const Manager = require('./lib/Manager');
@@ -5,8 +6,10 @@ const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 const generateHTML=require('./src/htmlMarkdown');
 
+//array to store manager and engineer or intern from user inputs
 const team = [];
 
+//creats manager based on user inputs
 function createManager() {
     return inquirer
         .prompt([
@@ -40,7 +43,7 @@ function createManager() {
         });
 }
 
-
+// creates an employee. Engineer or intern based on user inputs
 function createEmployee() {
     return inquirer
         .prompt([

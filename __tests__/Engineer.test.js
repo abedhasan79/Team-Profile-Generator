@@ -1,6 +1,9 @@
 const Engineer = require('../lib/Engineer');
 
+//tests Engineer class
 describe('Engineer class', ()=>{
+
+    // tests getName method
     describe('getName method', ()=>{
         it('gets the name of engineer', ()=>{
             const engineer = new Engineer('Abed', 2, 'abed@gmail.com', 'abedhasan79');
@@ -8,6 +11,7 @@ describe('Engineer class', ()=>{
         });
     });
 
+    //tests getID method
     describe('getId method', ()=>{
         it('gets the id of engineer', ()=>{
             const engineer = new Engineer('Abed', 2, 'abed@gmail.com', 'abedhasan79');
@@ -15,6 +19,7 @@ describe('Engineer class', ()=>{
         });
     });
 
+    //test getEmail method
     describe('getEmail method', ()=>{
         it('gets the email of engineer', ()=>{
             const engineer = new Engineer('Abed', 2, 'abed@gmail.com', 'abedhasan79');
@@ -22,6 +27,7 @@ describe('Engineer class', ()=>{
         });
     });
 
+    //test getGithub method
     describe('getGithub method', ()=>{
         it('gets the git hub username of engineer', ()=>{
             const engineer = new Engineer('Abed', 2, 'abed@gmail.com', 'abedhasan79');
