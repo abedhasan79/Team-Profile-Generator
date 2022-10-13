@@ -45,7 +45,7 @@ function generateManagerHtml(manager) {
         <div class="card">
             <div class="card-body">
                 <h5 class="card-title">${manager.name}</h5>
-                <h5 class="card-title">Manager</eh5>
+                <h5 class="card-title">Title: Manager</eh5>
             </div>
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">ID: ${manager.id}</li>
@@ -61,7 +61,7 @@ function generateEngineerHtml(engineer) {
         <div class="card">
             <div class="card-body">
                 <h5 class="card-title">${engineer.name}</h5>
-                <h5 class="card-title">Engineer</h5>
+                <h5 class="card-title">Title: Engineer</h5>
             </div>
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">ID: ${engineer.id}</li>
@@ -77,7 +77,7 @@ function generateInternHtml(intern) {
         <div class="card">
             <div class="card-body">
                 <h5 class="card-title">${intern.name}</h5>
-                <h5 class="card-title">Intern</h5>
+                <h5 class="card-title">Title: Intern</h5>
             </div>
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">ID: ${intern.id}</li>
