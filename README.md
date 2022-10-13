@@ -40,7 +40,7 @@ Please Contribute with issues and improvements
 
 ## Test
 
-N/A
+use npm test for validating test cases. (Use npm install first if not installed)
 
 ## Questions
 
